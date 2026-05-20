@@ -1,0 +1,27 @@
+[project]
+name = "pan-tilt-tracker"
+version = "0.1.0"
+description = "Pan-tilt camera that visually tracks an object in real-time. ROS2 Jazzy + OpenCV + Raspberry Pi 5."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Ahmed Elganady" }]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["ros2_ws/src/pan_tilt_tracker/test"]
+python_files = ["test_*.py"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]  # handled by formatter
